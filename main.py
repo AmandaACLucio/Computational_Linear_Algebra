@@ -6,7 +6,7 @@ from src.utils.files import read_matrix_file, read_vector_file, read_json_file
 
 def main():
 
-    task = input("Escolha a task desejada ")
+    task = input("Escolha a task desejada: ")
 
     load_config = read_json_file("../../files/inputs/config.json")
 

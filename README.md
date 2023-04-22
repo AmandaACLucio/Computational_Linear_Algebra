@@ -38,7 +38,7 @@ Para rodar basta usar o comando abaixo:
 
 ```sh
 $ python main.py
-> Escolha a task desejada
+> Escolha a task desejada: 
 ```
 
 Desta forma, basta digitar o número da task correspondente:
