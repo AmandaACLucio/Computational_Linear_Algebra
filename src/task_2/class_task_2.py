@@ -1,20 +1,18 @@
-﻿﻿from src.task_2.jacobi_method import solve_jacobi_method
+﻿from src.task_2.jacobi_method import solve_jacobi_method
 from src.task_2.power_method import solve_power_method
 from src.utils.files import write_output_file
 
 class task_2:
 
-    def __init__(self, order, ICOD, IDET, matrix_a, TOL_m):
-
-        self.order=order
+    def __init__(self, ICOD, IDET, matrix_a, TOL_m):
+    
         self.ICOD = ICOD
         self.IDET = IDET
         self.matrix_a = matrix_a
         self.TOL_m = TOL_m
 
-
     def run(self):
-
+    
         content = {'eigen_values': [],
                 'eigen_vectors': [],
                 'useErrors': '',
@@ -34,9 +32,9 @@ class task_2:
 
                 if(self.ICOD==1):
                     print("Power Method")
-                    [eigen_values, eigen_vectors, steps, use_errors] = solve_power_method(self.matrix_a, self.TOL_m)
-                    content['eigen_values'] = eigen_values
-                    content['eigen_vectors'] = eigen_vectors
+                    [eigen_value, eigen_vectors, steps, use_errors] = solve_power_method(self.matrix_a, self.TOL_m)
+                    content['eigen_values'] = eigen_value
+                    content['eigen_vectors'] = list(eigen_vectors)
                     content['convergenceInterationNumber'] = steps
                     content['useErrors'] = use_errors
 
@@ -45,8 +43,8 @@ class task_2:
                 elif(self.ICOD==2):
                     print("Jacobi Method")
                     [eigen_values, eigen_vectors, steps, determinant, use_errors] = solve_jacobi_method(self.matrix_a, self.TOL_m)
-                    content['eigen_values'] = eigen_values
-                    content['eigen_vectors'] = eigen_vectors
+                    content['eigen_values'] = list(eigen_values)
+                    content['eigen_vectors'] = list(eigen_vectors)
                     content['convergenceInterationNumber'] = steps
                     content['useErrors'] = use_errors
 

@@ -1,7 +1,10 @@
 ﻿{
-    "_coment1_": "PARTE 1",
-    "ICOD": 2,
-    "OrdemN": 14,
-    "Path_Matrix_A": "..\\..\\files\\inputs\\mat_A_02.dat",
-    "Path_Vector_B": "..\\..\\files\\inputs\\vet_B_02.dat"
+    "_coment1_": "Task 1",
+    "_coment2_": "Parte 1",    
+    "ICOD": 1,
+    "Path_Matrix_A": "..\\..\\data\\inputs\\mat_A_02.dat",
+    "Path_Vector_B": "..\\..\\data\\inputs\\vet_B_02.dat",
+    "_coment3_": "Parte 2",
+    "TOLm": 0
+
 }

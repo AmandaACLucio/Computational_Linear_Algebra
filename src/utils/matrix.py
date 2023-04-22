@@ -1,4 +1,5 @@
-﻿import numpy as np
+﻿import math
+import numpy as np
 
 def forward_substituiton(matrixA, vectorB, isLU=True, useErrors=[]):
     n = vectorB.shape[0]
@@ -44,3 +45,49 @@ def is_positive_definite(matrixA):
 
 def is_symmetric(matrixA):
     return np.allclose(matrixA, matrixA.T)
+
+def converge(matrixA):
+    
+    if(matrixA.shape[0] != matrixA.shape[1]):
+        print("A matriz precisa ser quadrada para realizar essa operação")
+        return -1
+
+    n = matrixA.shape[0]
+    for i in range(n):
+
+        sum_line = np.sum(np.abs(matrixA[i, 0:i]))+np.sum(np.abs(matrixA[i, i+1:]))
+        sum_column = np.sum(np.abs(matrixA[0:i,i]))+np.sum(np.abs(matrixA[i+1:, i]))
+
+        if(sum_column > matrixA[i,i] or sum_line > matrixA[i,i]):
+            return False
+
+    return True
+
+def largest_off_diagonal_value(matrixA):
+
+    mask = np.ones(matrixA.shape, dtype=bool)
+    np.fill_diagonal(mask, 0)
+    row, col = np.nonzero(mask)  # encontra as coordenadas dos elementos fora da diagonal
+    max_value_index = np.argmax(matrixA[row, col])
+    max_value_coords = (row[max_value_index], col[max_value_index])
+    return max_value_coords
+
+def calculate_value_phi(matrixA, position):
+    (i, j) = position
+
+    if(matrixA[i,i] == matrixA[j,j]):
+        return math.pi/4
+    return 0.5*math.atan(2*matrixA[i,j]/(matrixA[i,i]-matrixA[j,j]))
+
+def calculate_matrix_p_jacobiano(matrixA, position):
+    
+    value_phi = calculate_value_phi(matrixA, position)
+    matrix_p = np.identity(matrixA.shape[0])
+    (i, j) = position
+
+    matrix_p[i, i] = math.cos(value_phi)
+    matrix_p[j, j] = math.cos(value_phi)
+    matrix_p[i, j] = -math.sin(value_phi)
+    matrix_p[j, i] = math.sin(value_phi)
+
+    return matrix_p

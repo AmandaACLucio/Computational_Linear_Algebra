@@ -2,13 +2,13 @@
 import copy as c
 from src.utils.matrix import forward_substituiton, backward_substituiton
 
-def decomposition_LU(matrixA):
+def decomposition_LU(matrixLU):
     
-    n = matrixA.shape[0]
-    matrixLU = np.copy(matrixA).astype(float)
+    n = matrixLU.shape[0]
+    #matrixLU = np.copy(matrixA).astype(float)
     useErrors = []
 
-    if(matrixA.shape[0] != matrixA.shape[1]):
+    if(matrixLU.shape[0] != matrixLU.shape[1]):
         msgError = "Erro! Essa matriz não é quadrada. Tente com outros parâmetros!"
         useErrors.append(msgError)
         return [matrixLU, useErrors]
@@ -39,4 +39,3 @@ def solve_decomposition_LU(matrix, vector_b):
 
     return [SolveUxY, useErrors]
 
-print(solve_decomposition_LU(np.array([[1,2,2],[4,4,2],[4,6,4]]), np.array([3,6,10])))
