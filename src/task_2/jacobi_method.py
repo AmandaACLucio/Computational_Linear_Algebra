@@ -21,7 +21,7 @@ def calculate_value_phi(matrixA, position):
 def calculate_matrix_p_jacobiano(matrixA, position):
     
     value_phi = calculate_value_phi(matrixA, position)
-    matrix_p = np.identity(matrixA.shape[0])
+    matrix_p = np.identity(matrixA.shape[0]).astype(float)
     (i, j) = position
 
     matrix_p[i, i] = math.cos(value_phi)
@@ -31,6 +31,9 @@ def calculate_matrix_p_jacobiano(matrixA, position):
 
     return matrix_p
 
+def is_symmetric(matrixA):
+    return np.allclose(matrixA, matrixA.T)
+
 def solve_jacobi_method(matrixA, tol, maxIter=1000):
 
     useErrors = []
@@ -38,17 +41,17 @@ def solve_jacobi_method(matrixA, tol, maxIter=1000):
     steps = 0
 
 
-    ''' if(not is_symmetric(matrixA)):
+    if(not is_symmetric(matrixA)):
         msgError = "Erro! Essa matriz não é simétrica. Tente com outros parâmetros!"
         useErrors.append(msgError)
-        return([], useErrors, steps) '''
+        return([], useErrors, steps)
 
     while(residue>=tol):
     
         if(steps>maxIter):
             msgError = "Jacobi Method: max iterations reached"
             useErrors.append(msgError)
-            return([], [], steps, useErrors)
+            return([], [], None, steps, useErrors)
         
 
         if(steps==0):
@@ -66,7 +69,11 @@ def solve_jacobi_method(matrixA, tol, maxIter=1000):
 
         steps+=1
 
-    return([matrixX, useErrors, steps])
+    matrixA = np.diag(matrixA)
+
+    determinate = np.prod(matrixA)
+
+    return([matrixA, matrixX, determinate, useErrors, steps])
 
 
-print(solve_jacobi_method(np.array([[1, 0.2, 0], [0.2, 1, 0.5], [0, 0.5, 1]]), 0.0001))
+print(solve_jacobi_method(np.array([[1, 0.2, 0], [0.2, 1, 0.5], [0, 0.5, 1]]), 0.01))

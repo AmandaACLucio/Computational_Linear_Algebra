@@ -38,6 +38,13 @@ class task_2:
                     content['convergenceInterationNumber'] = steps
                     content['useErrors'] = use_errors
 
+                    if(not isinstance(self.IDET, int)):
+                        content['useErrors'] = "Insira um IDET inteiro no arquivo de configurações"
+                    
+                    else:   
+                        if(self.IDET>0):
+
+                            content["useErrors"].append("Power Method não calcula determinante")
 
 
                 elif(self.ICOD==2):
@@ -48,12 +55,12 @@ class task_2:
                     content['convergenceInterationNumber'] = steps
                     content['useErrors'] = use_errors
 
-            if(not isinstance(self.IDET, int)):
-                content['useErrors'] = "Insira um IDET inteiro no arquivo de configurações"
-            
-            else:   
-                if(self.IDET>0):
+                    if(not isinstance(self.IDET, int)):
+                        content['useErrors'] = "Insira um IDET inteiro no arquivo de configurações"
+                    
+                    else:   
+                        if(self.IDET>0):
 
-                    content["determinant"] = solve_jacobi_method(self.matrix_a, self.TOL_m)[3]
+                            content["determinant"] = determinant
 
         write_output_file(content)
