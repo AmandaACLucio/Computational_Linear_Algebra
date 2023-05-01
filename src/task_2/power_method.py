@@ -9,6 +9,9 @@ def solve_power_method(matrixA, tol, maxIter=1000):
     residue = math.inf
     steps = 0
 
+    eigenVector = np.ones(matrixA.shape[1])
+    eigenValue = 1
+
     while(residue>=tol):
 
         if(steps>maxIter):
@@ -16,10 +19,6 @@ def solve_power_method(matrixA, tol, maxIter=1000):
             useErrors.append(msgError)
             return([], [], steps, useErrors)
         
-        if(steps==0):
-            eigenVector = np.ones(matrixA.shape[1])
-            eigenValue = 1
-
         vectorY = np.dot(matrixA, eigenVector)
         eigenValueNext = np.max(vectorY)
         eigenVector = vectorY/eigenValueNext

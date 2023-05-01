@@ -1,10 +1,10 @@
 ﻿{
     "_coment1_": "Task 1",
     "_coment2_": "Parte 1",    
-    "ICOD": 2,
+    "ICOD": 4,
     "Path_Matrix_A": "..\\..\\data\\inputs\\mat_A_02.dat",
     "Path_Vector_B": "..\\..\\data\\inputs\\vet_B_02.dat",
     "_coment3_": "Parte 2",
-    "TOLm": 0.00001,
+    "TOLm": 0.0000001,
     "IDET": 1
 }

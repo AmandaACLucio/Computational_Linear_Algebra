@@ -90,13 +90,13 @@ def calculate_value_phi(matrixA, position):
 
 def calculate_matrix_p_jacobiano(matrixA, position):
     
-    value_phi = calculate_value_phi(matrixA, position)
-    matrix_p = np.identity(matrixA.shape[0])
+    valuePhi = calculate_value_phi(matrixA, position)
+    matrixP = np.identity(matrixA.shape[0])
     (i, j) = position
 
-    matrix_p[i, i] = math.cos(value_phi)
-    matrix_p[j, j] = math.cos(value_phi)
-    matrix_p[i, j] = -math.sin(value_phi)
-    matrix_p[j, i] = math.sin(value_phi)
+    matrixP[i, i] = math.cos(valuePhi)
+    matrixP[j, j] = math.cos(valuePhi)
+    matrixP[i, j] = -math.sin(valuePhi)
+    matrixP[j, i] = math.sin(valuePhi)
 
     return matrix_p

@@ -17,6 +17,9 @@ A task 2 visa calcular os autovalores e autovetores de uma matriz através do m�
 
 O projeto possui uma pasta para [inputs](https://github.com/AmandaACLucio/Algebra-Linear-Computacional/tree/master/files/inputs), na mesma você precisará alterar o conteúdo dos arquivos .dat referente a matriz A. Além disso, é necessário alterar o arquivo de [configurações](https://github.com/AmandaACLucio/Computational_Linear_Algebra/tree/master/data/inputs/config.json) para selecionar se é necessário cálcular determinante, qual método será utilizado e a tolerância.
 
+- ICOD 1 : Método da Potência
+- ICOD 2 : Método de Jacobi
+
 ## Como rodar
 
 Para rodar basta usar o comando abaixo:
