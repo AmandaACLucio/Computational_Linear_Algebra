@@ -1,8 +1,8 @@
 ﻿# Task 2
 
-Projeto realizado em python3 por Amanda Lucio e Nayara Gomes.
+Projeto realizado em python3 por Amanda Lucio.
 
-## Table of Contents:
+## Tópicos:
 - [Sobre](#Sobre)
 - [Como usar](#Como-usar)
 - [Como rodar](#Como-Rodar)

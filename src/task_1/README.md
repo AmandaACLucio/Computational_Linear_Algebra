@@ -2,7 +2,7 @@
 
 Projeto realizado em python3.8 por Amanda Lucio.
 
-## Table of Contents:
+## Tópicos:
 - [Sobre](#Sobre)
 - [Como usar](#Como-usar)
 - [Como rodar](#Como-Rodar)

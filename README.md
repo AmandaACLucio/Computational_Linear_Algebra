@@ -2,7 +2,8 @@
 
 Projeto realizado em python3.8 por Amanda Lucio.
 
-## Table of Contents:
+## Tópicos:
+
 
 - [Estrutura do projeto](#Estrutura)
 - [Como usar](#Como-usar)
