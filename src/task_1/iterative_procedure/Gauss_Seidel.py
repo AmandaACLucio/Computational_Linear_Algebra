@@ -1,6 +1,6 @@
 ﻿import math
 import numpy as np
-from src.utils.matrix import converge, is_positive_definite, is_symmetric
+from utils.matrix import converge, is_positive_definite, is_symmetric
 
 
 def solve_gauss_seidel(matrixA, vectorB, tol, maxIter=1000):

@@ -1,6 +1,6 @@
-﻿from src.task_2.jacobi_method import solve_jacobi_method
-from src.task_2.power_method import solve_power_method
-from src.utils.files import write_output_file
+﻿from task_2.jacobi_method import solve_jacobi_method
+from task_2.power_method import solve_power_method
+from utils.files import write_output_file
 
 class task_2:
 
@@ -49,9 +49,9 @@ class task_2:
 
                 elif(self.ICOD==2):
                     print("Jacobi Method")
-                    [eigen_values, eigen_vectors, steps, determinant, use_errors] = solve_jacobi_method(self.matrix_a, self.TOL_m)
+                    [eigen_values, eigen_vectors, determinant, use_errors, steps] = solve_jacobi_method(self.matrix_a, self.TOL_m)
                     content['eigen_values'] = list(eigen_values)
-                    content['eigen_vectors'] = list(eigen_vectors)
+                    content['eigen_vectors'] = [list(eigen_vectors[i]) for i in range(len(eigen_vectors))]
                     content['convergenceInterationNumber'] = steps
                     content['useErrors'] = use_errors
 

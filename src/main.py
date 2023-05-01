@@ -1,7 +1,7 @@
-﻿from src.task_1.class_task_1 import task_1
-from src.task_2.class_task_2 import task_2
+﻿from task_1.class_task_1 import task_1
+from task_2.class_task_2 import task_2
 
-from src.utils.files import read_matrix_file, read_vector_file, read_json_file
+from utils.files import read_matrix_file, read_vector_file, read_json_file
 
 
 def main():

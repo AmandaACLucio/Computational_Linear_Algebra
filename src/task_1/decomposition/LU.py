@@ -1,11 +1,9 @@
 ﻿import numpy as np
-import copy as c
-from src.utils.matrix import forward_substituiton, backward_substituiton
+from utils.matrix import forward_substituiton, backward_substituiton
 
 def decomposition_LU(matrixLU):
     
     n = matrixLU.shape[0]
-    #matrixLU = np.copy(matrixA).astype(float)
     useErrors = []
 
     if(matrixLU.shape[0] != matrixLU.shape[1]):

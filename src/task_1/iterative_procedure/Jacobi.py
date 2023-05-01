@@ -1,6 +1,6 @@
 ﻿import math
 import numpy as np
-from src.utils.matrix import converge
+from utils.matrix import converge
 
 
 def solve_jacobiano(matrixA, vectorB, tol, maxIter=1000):

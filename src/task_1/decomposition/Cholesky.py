@@ -1,50 +1,6 @@
 ﻿import numpy as np
 import copy as c
-#from src.utils.matrix import forward_substituiton, backward_substituiton, is_positive_definite, is_symmetric
-def forward_substituiton(matrixA, vectorB, isLU=True, useErrors=[]):
-    n = vectorB.shape[0]
-    vectorX = np.zeros(n).astype(float)
-
-    if(n != matrixA.shape[1]):
-        msgError= "A matriz 1 precisa ter o mesmo número de colunas que a quantidade de linhas do vetor"
-        useErrors.append(msgError)
-        return [[], useErrors]
-
-    if(isLU):
-        vectorX[0] = vectorB[0]
-    else:
-        vectorX[0] = vectorB[0]/matrixA[0][0]
-
-    for i in range(n):
-        vectorX[i] = vectorB[i] -np.dot(matrixA[i,0:i], vectorX[0:i])
-
-        if not isLU:
-            vectorX[i] /= matrixA[i, i]
-
-    return [vectorX, useErrors]
-
-def backward_substituiton(matrixA, vectorB, isLU=True, useErrors=[]):
-    n = vectorB.shape[0]
-    vectorX = np.zeros(n).astype(float)
-
-    if(n != matrixA.shape[1]):
-        msgError= "A matriz 1 precisa ter o mesmo número de colunas que a quantidade de linhas do vetor"
-        useErrors.append(msgError)
-        return [[], useErrors]
-
-
-    vectorX[n-1] = vectorB[n-1]/matrixA[n-1][n-1]
-
-    for i in range(n-1, -1, -1):
-        vectorX[i] = (vectorB[i]-np.dot(matrixA[i, i+1:n], vectorX[i+1:n]))/float(matrixA[i, i])
-
-    return [vectorX, useErrors]
-
-def is_positive_definite(matrixA):
-    return np.all(np.linalg.eigvals(matrixA) > 0)
-
-def is_symmetric(matrixA):
-    return np.allclose(matrixA, matrixA.T)
+from utils.matrix import forward_substituiton, backward_substituiton, is_positive_definite, is_symmetric
 
 def decomposition_Cholesky(matrixA):
 
@@ -77,13 +33,11 @@ def solve_decomposition_Cholesky(matrix, vector_b):
     "Solve LUx=b, first we have Ly=b, so we solve Ly=b and then Ux=y"
 
     [matrixL, useErrors] = decomposition_Cholesky(matrix)
-    print(matrixL)
-
     
     if(len(useErrors)>0):
         return [matrixL, useErrors]
     
-    [SolveLyB, useErrors] = forward_substituiton(matrixL, vector_b)
+    [SolveLyB, useErrors] = forward_substituiton(matrixL, vector_b, isLU=False)
     
     if(len(useErrors)>0):
         return [[], useErrors]

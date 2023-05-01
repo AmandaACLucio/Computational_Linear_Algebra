@@ -23,7 +23,7 @@ def forward_substituiton(matrixA, vectorB, isLU=True, useErrors=[]):
 
     return [vectorX, useErrors]
 
-def backward_substituiton(matrixA, vectorB, isLU=True, useErrors=[]):
+def backward_substituiton(matrixA, vectorB, useErrors=[]):
     n = vectorB.shape[0]
     vectorX = np.zeros(n).astype(float)
 
@@ -63,14 +63,23 @@ def converge(matrixA):
 
     return True
 
-def largest_off_diagonal_value(matrixA):
+def largest_absolute_off_diagonal_value(matrixA):
 
     mask = np.ones(matrixA.shape, dtype=bool)
     np.fill_diagonal(mask, 0)
     row, col = np.nonzero(mask)  # encontra as coordenadas dos elementos fora da diagonal
-    max_value_index = np.argmax(matrixA[row, col])
-    max_value_coords = (row[max_value_index], col[max_value_index])
-    return max_value_coords
+    maxValueIndex = np.argmax(np.absolute((matrixA[row, col])))
+    maxValueCoords = (row[maxValueIndex], col[maxValueIndex])
+    return maxValueCoords
+
+def largest_value_off_diagonal_value(matrixA):
+    
+    mask = np.ones(matrixA.shape, dtype=bool)
+    np.fill_diagonal(mask, 0)
+    row, col = np.nonzero(mask)  # encontra as coordenadas dos elementos fora da diagonal
+    maxValueIndex = np.argmax((matrixA[row, col]))
+    maxValueCoords = (row[maxValueIndex], col[maxValueIndex])
+    return maxValueCoords
 
 def calculate_value_phi(matrixA, position):
     (i, j) = position

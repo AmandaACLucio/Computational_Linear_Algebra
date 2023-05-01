@@ -22,7 +22,7 @@ O projeto possui uma pasta para [inputs](https://github.com/AmandaACLucio/Algebr
 Para rodar basta usar o comando abaixo:
 
 ```sh
-$ python main.py
+$ python src/main.py
 > Escolha a task desejada: 
 ```
 

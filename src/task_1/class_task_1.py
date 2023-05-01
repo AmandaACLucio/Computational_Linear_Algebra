@@ -1,8 +1,8 @@
-﻿from src.task_1.decomposition.LU import solve_decomposition_LU
-from src.task_1.decomposition.Cholesky import solve_decomposition_Cholesky
-from src.task_1.iterative_procedure.Jacobi import solve_jacobiano
-from src.task_1.iterative_procedure.Gauss_Seidel import solve_gauss_seidel
-from src.utils.files import write_output_file
+﻿from task_1.decomposition.LU import solve_decomposition_LU
+from task_1.decomposition.Cholesky import solve_decomposition_Cholesky
+from task_1.iterative_procedure.Jacobi import solve_jacobiano
+from task_1.iterative_procedure.Gauss_Seidel import solve_gauss_seidel
+from utils.files import write_output_file
 
 class task_1:
 

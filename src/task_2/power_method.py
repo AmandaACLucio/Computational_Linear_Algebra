@@ -30,6 +30,3 @@ def solve_power_method(matrixA, tol, maxIter=1000):
         steps+=1
 
     return [eigenValue, eigenVector, steps, useErrors]
-
-
-print(solve_power_method(np.array([[1, 0.2, 0], [0.2, 1, 0.5], [0, 0.5, 1]]), 0.0001))

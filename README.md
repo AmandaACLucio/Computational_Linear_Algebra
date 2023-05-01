@@ -20,24 +20,30 @@ C:.
 │
 ├───files
 │
-└───src
-    ├───task_1
-    │   ├───decomposition
-    │   └───iterative_procedure
-    └───task_2
+├───src
+│   ├───task_1
+│   │   ├───decomposition
+│   │   └───iterative_procedure
+│   ├───task_2
+│   │
+│   ├──utils
+│   |
+│   └───main.py
+│
+└───requirements.txt
 
 ```
 
 ## Como usar
 
-O projeto possui uma pasta para [inputs](https://github.com/AmandaACLucio/Computational_Linear_Algebra/tree/master/data/inputs), na mesma você precisará alterar o conteúdo dos arquivos .dat, de acordo com a task desejada. Além disso, é necessário alterar o arquivo de [configurações](https://github.com/AmandaACLucio/Computational_Linear_Algebra/blob/master/data/inputs/config.json) para selecionar o programa da task que deseja rodar e os outros flags.
+O projeto possui uma pasta para [inputs](https://github.com/AmandaACLucio/Computational_Linear_Algebra/tree/master/data/inputs), na mesma você precisará alterar o conteúdo dos arquivos .dat, de acordo com a task desejada. Além disso, é necessário alterar o arquivo de [configurações](https://github.com/AmandaACLucio/Computational_Linear_Algebra/blob/master/data/inputs/config.json) para selecionar o programa da task que deseja rodar e mudar outras flags.
 
 ## Como rodar
 
 Para rodar basta usar o comando abaixo:
 
 ```sh
-$ python main.py
+$ python src/main.py
 > Escolha a task desejada: 
 ```
 
