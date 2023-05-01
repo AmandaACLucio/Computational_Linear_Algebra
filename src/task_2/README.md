@@ -1,4 +1,4 @@
-﻿# Task 1
+﻿# Task 2
 
 Projeto realizado em python3 por Amanda Lucio e Nayara Gomes.
 
