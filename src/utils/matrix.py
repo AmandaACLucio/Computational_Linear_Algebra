@@ -99,4 +99,4 @@ def calculate_matrix_p_jacobiano(matrixA, position):
     matrixP[i, j] = -math.sin(valuePhi)
     matrixP[j, i] = math.sin(valuePhi)
 
-    return matrix_p
+    return matrixP
