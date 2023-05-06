@@ -72,15 +72,6 @@ def largest_absolute_off_diagonal_value(matrixA):
     maxValueCoords = (row[maxValueIndex], col[maxValueIndex])
     return maxValueCoords
 
-def largest_value_off_diagonal_value(matrixA):
-    
-    mask = np.ones(matrixA.shape, dtype=bool)
-    np.fill_diagonal(mask, 0)
-    row, col = np.nonzero(mask)  # encontra as coordenadas dos elementos fora da diagonal
-    maxValueIndex = np.argmax((matrixA[row, col]))
-    maxValueCoords = (row[maxValueIndex], col[maxValueIndex])
-    return maxValueCoords
-
 def calculate_value_phi(matrixA, position):
     (i, j) = position
 
