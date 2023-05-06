@@ -18,6 +18,11 @@ def solve_gauss_seidel(matrixA, vectorB, tol, maxIter=1000):
         useErrors.append(msgError)
         return([], residueHistoric, useErrors, steps)
     
+    if(vectorB.shape[0] != matrixA.shape[1]):
+        msgError= "A matriz A precisa ter o mesmo número de colunas que a quantidade de linhas do vetor B"
+        useErrors.append(msgError)
+        return([], residueHistoric, useErrors, steps)
+    
     if(not is_symmetric(matrixA) or not is_positive_definite(matrixA)):
         if(not converge(matrixA)):
             msgError = "Erro! Essa matriz não converge. Tente com outros parâmetros!"

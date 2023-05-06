@@ -16,6 +16,7 @@ def solve_jacobi_method(matrixA, tol, maxIter=1000):
         return([], useErrors, steps)
 
     matrixX =  np.identity(matrixA.shape[0])
+    residue = math.inf
 
     while(residue>=tol):
     
@@ -25,15 +26,26 @@ def solve_jacobi_method(matrixA, tol, maxIter=1000):
             return([], [], None, steps, useErrors)
         
 
-        position_biggest_absolute_off_diagonal_value = largest_absolute_off_diagonal_value(matrixA)
-        position_biggest_value_off_diagonal_value = largest_value_off_diagonal_value(matrixA)
-        residue = matrixA[position_biggest_value_off_diagonal_value]
+        print("-----------------")
 
+        print("step: ", steps)
+
+        position_biggest_absolute_off_diagonal_value = largest_absolute_off_diagonal_value(matrixA)
 
         matrixP = calculate_matrix_p_jacobiano(matrixA, position_biggest_absolute_off_diagonal_value)
 
         matrixA = np.dot(np.dot(matrixP.T, matrixA), matrixP)
         matrixX = np.dot(matrixX, matrixP)
+
+        print("P: ", matrixP)
+        print("A: ", matrixA)
+        print("X: ", matrixX)
+
+        position_residue = largest_absolute_off_diagonal_value(matrixA)
+        residue = math.fabs(matrixA[position_residue])
+        print("residue: ", residue)
+
+        print("-----------------")
 
 
         steps+=1
