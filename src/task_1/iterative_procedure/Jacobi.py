@@ -12,7 +12,6 @@ def solve_jacobiano(matrixA, vectorB, tol, maxIter=1000):
     useErrors = []
     steps = 0
 
-
     if(matrixA.shape[0] != matrixA.shape[1]):
         msgError = "Erro! Essa matriz não é quadrada. Tente com outros parâmetros!"
         useErrors.append(msgError)
@@ -22,7 +21,6 @@ def solve_jacobiano(matrixA, vectorB, tol, maxIter=1000):
         msgError= "A matriz A precisa ter o mesmo número de colunas que a quantidade de linhas do vetor B"
         useErrors.append(msgError)
         return([], residueHistoric, useErrors, steps)
-
     
     if(not converge(matrixA)):
         msgError = "Erro! Essa matriz não converge. Tente com outros parâmetros!"
@@ -39,7 +37,6 @@ def solve_jacobiano(matrixA, vectorB, tol, maxIter=1000):
         vectorXold = vectorX.copy()
 
         for i in range(vectorB.shape[0]):
-
             vectorX[i] = (vectorB[i]-np.sum(matrixA[i, 0:i]*vectorXold[0:i])-np.sum(matrixA[i, i+1:]*vectorXold[i+1:]))/matrixA[i, i]
 
         residue = np.linalg.norm(vectorX-vectorXold)/np.linalg.norm(vectorX)

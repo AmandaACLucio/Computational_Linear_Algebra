@@ -9,7 +9,7 @@ def decomposition_LU(matrixLU):
     if(matrixLU.shape[0] != matrixLU.shape[1]):
         msgError = "Erro! Essa matriz não é quadrada. Tente com outros parâmetros!"
         useErrors.append(msgError)
-        return [matrixLU, useErrors]
+        return [[], useErrors]
 
     for k in range(n-1):
         matrixLU[k+1:n, k] = matrixLU[k+1:n, k] / matrixLU[k, k]
@@ -32,7 +32,7 @@ def solve_decomposition_LU(matrix, vector_b):
     
     if(len(useErrors)>0):
         return [[], useErrors]
-
+    
     [SolveUxY, useErrors]=backward_substituiton(matrixLU, SolveLyB)
 
     return [SolveUxY, useErrors]

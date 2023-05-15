@@ -22,14 +22,10 @@ class task_2:
 
         if(not isinstance(self.ICOD, int) or (self.ICOD!=1 and self.ICOD!=2)):
             content['useErrors'] = "Insira um ICOD (1 ou 2) no arquivo de configurações"
-        
         else:
-
             if(not isinstance(self.TOL_m, float)):
                 content['useErrors'] = "Insira uma valor de tolerância float no arquivo de configurações"
-            
             else:
-
                 if(self.ICOD==1):
                     print("Power Method")
                     [eigen_value, eigen_vectors, steps, use_errors] = solve_power_method(self.matrix_a, self.TOL_m)
@@ -40,13 +36,9 @@ class task_2:
 
                     if(not isinstance(self.IDET, int)):
                         content['useErrors'] = "Insira um IDET inteiro no arquivo de configurações"
-                    
                     else:   
                         if(self.IDET>0):
-
                             content["useErrors"].append("Power Method não calcula determinante")
-
-
                 elif(self.ICOD==2):
                     print("Jacobi Method")
                     [eigen_values, eigen_vectors, determinant, use_errors, steps] = solve_jacobi_method(self.matrix_a, self.TOL_m)
@@ -57,10 +49,8 @@ class task_2:
 
                     if(not isinstance(self.IDET, int)):
                         content['useErrors'] = "Insira um IDET inteiro no arquivo de configurações"
-                    
                     else:   
                         if(self.IDET>0):
-
                             content["determinant"] = determinant
 
         write_output_file(content)

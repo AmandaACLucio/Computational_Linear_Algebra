@@ -12,7 +12,6 @@ def solve_gauss_seidel(matrixA, vectorB, tol, maxIter=1000):
     useErrors = []
     steps = 0
 
-
     if(matrixA.shape[0] != matrixA.shape[1]):
         msgError = "Erro! Essa matriz não é quadrada. Tente com outros parâmetros!"
         useErrors.append(msgError)
@@ -30,7 +29,6 @@ def solve_gauss_seidel(matrixA, vectorB, tol, maxIter=1000):
             return([], residueHistoric, useErrors, steps)
 
     while(residue>=tol):
-
         if(steps>maxIter):
             msgError = "Jacobi: max iterations reached"
             useErrors.append(msgError)
@@ -39,7 +37,6 @@ def solve_gauss_seidel(matrixA, vectorB, tol, maxIter=1000):
         vectorXold = vectorX.copy()
 
         for i in range(vectorB.shape[0]):
-
             vectorX[i] = (vectorB[i]-np.sum(matrixA[i, 0:i]*vectorX[0:i])-np.sum(matrixA[i, i+1:]*vectorXold[i+1:]))/matrixA[i, i]
 
         residue = np.linalg.norm(vectorX-vectorXold)/np.linalg.norm(vectorX)

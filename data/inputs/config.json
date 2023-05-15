@@ -3,7 +3,7 @@
     "_coment2_": "Parte 1",    
     "ICOD": 2,
     "Path_Matrix_A": "..\\..\\data\\inputs\\mat_A_02.dat",
-    "Path_Vector_B": "..\\..\\data\\inputs\\vet_B_02.dat",
+    "Path_Vector_B": "..\\..\\data\\inputs\\vet_B_04.dat",
     "_coment3_": "Parte 2",
     "TOLm": 0.0000001,
     "IDET": 1

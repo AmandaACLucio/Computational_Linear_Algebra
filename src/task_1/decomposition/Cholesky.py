@@ -11,12 +11,12 @@ def decomposition_Cholesky(matrixA):
     if(matrixA.shape[0] != matrixA.shape[1]):
         str_error = "Erro! Essa matriz não é quadrada. Tente com outros parâmetros!"
         useErrors.append(str_error)
-        return [matrix_L, useErrors]
+        return [[], useErrors]
 
     if(not is_symmetric(matrixA) or not is_positive_definite(matrixA)):
         str_error = "Erro! A matriz precisa ser simétrica e definida positiva. Tente com outros parâmetros!"
         useErrors.append(str_error)
-        return [matrix_L, useErrors]
+        return [[], useErrors]
     
     for i in range(n):
 
