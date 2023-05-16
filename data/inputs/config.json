@@ -1,7 +1,7 @@
 ﻿{
     "_coment1_": "Task 1",
     "_coment2_": "Parte 1",    
-    "ICOD": 2,
+    "ICOD": 1,
     "Path_Matrix_A": "..\\..\\data\\inputs\\mat_A_02.dat",
     "Path_Vector_B": "..\\..\\data\\inputs\\vet_B_04.dat",
     "_coment3_": "Parte 2",
